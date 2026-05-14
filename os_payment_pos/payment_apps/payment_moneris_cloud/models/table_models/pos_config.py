@@ -1,0 +1,14 @@
+from odoo import fields, models,api
+
+class MonerisGoPosConfig(models.Model):
+    _inherit = "pos.config"
+
+    is_moneris_go_preauth_enabled = fields.Boolean('Is moneris Go Preauth Enabled',default=False)
+
+    # @api.depends('payment_method_ids')
+    # def _compute_is_moneris_go_preauth_enabled(self):
+    #     for rec in self:
+    #         if any(rec.payment_method_ids.mapped('is_moneris_go_cloud')):
+    #             rec.is_moneris_go_preauth_enabled = True
+    #         else:
+    #             rec.is_moneris_go_preauth_enabled = False
